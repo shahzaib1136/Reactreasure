@@ -1,0 +1,109 @@
+{
+  "name": "@shahzaib1136/reactreasure",
+  "version": "2.1.2",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/reactreasure.cjs.js",
+  "module": "./dist/reactreasure.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/reactreasure.es.js",
+      "require": "./dist/reactreasure.cjs.js"
+    }
+  },
+  "private": false,
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p build:*",
+    "build:scripts": "vite build",
+    "build:types": "tsc --emitDeclarationOnly",
+    "commit": "npx git-cz",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "lint.fix": "eslint 'src/**/*.{ts,tsx}' --fix",
+    "lint.staged": "lint-staged",
+    "format": "npx prettier --write 'src/**/*.{ts,tsx}'",
+    "test": "jest --maxWorkers=50%",
+    "test.watch": "jest --watch --maxWorkers=25%",
+    "test.ci": "jest --runInBand"
+  },
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/react-hooks": "^5.1.1",
+    "@types/jest": "^26.0.22",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "@vitejs/plugin-react": "^1.2.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.23.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^3.10.2",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-localstorage-mock": "^2.4.9",
+    "lint-staged": "^10.5.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "semantic-release": "^19.0.3",
+    "typescript": "^4.1.2",
+    "use-debounce": "^6.0.1",
+    "vite": "^2.9.16"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "commitlint": {
+    "rules": {
+      "type-enum": [
+        2,
+        "always",
+        [
+          "feat",
+          "fix",
+          "docs",
+          "chore",
+          "refactor",
+          "test",
+          "ci"
+        ]
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md}": [
+      "tsc",
+      "prettier --write",
+      "eslint --fix",
+      "jest --runInBand",
+      "git add"
+    ]
+  },
+  "browserslist": "last 2 Chrome versions"
+}
