@@ -1,5 +1,3 @@
-// src/hooks/useFetch.ts
-
 import { useEffect, useState } from 'react';
 
 export const useFetch = <T = unknown>(url: string) => {

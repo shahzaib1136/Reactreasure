@@ -1,6 +1,6 @@
 // src/hooks/useFetch.test.ts
 
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react-hooks';
 import { useFetch } from './useFetch';
 import fetchMock from 'jest-fetch-mock';
 
