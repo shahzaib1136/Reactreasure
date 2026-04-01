@@ -2,7 +2,23 @@
 
 ## Getting Started
 
-Coming soon...
+### Installation
+
+Install the package via npm or yarn:
+
+```bash
+npm install hooked-up-react
+# or
+yarn add hooked-up-react
+```
+
+### Usage
+
+Import the hooks you need directly into your React components:
+
+```javascript
+import { useFetch, useToggle, useDialog } from 'hooked-up-react';
+```
 
 ### reactreasure API Rules
 
@@ -66,4 +82,29 @@ const { data, loading, error, abort } = useFetch(
   loading: boolean; // A boolean indicating if the fetch is in progress
   abort: () => void; // A function to cancel the fetch request
 }
+```
+
+### useToggle
+
+**Description** Manages a boolean state, providing functions to toggle, set to true, or set to false.
+
+**Example**
+
+```javascript
+const [value, toggle, setTrue, setFalse] = useToggle(false);
+```
+
+**Parameters**
+
+`initialValue`: boolean (optional): The initial boolean value (defaults to `false`).
+
+**Returns**:
+
+```typescript
+[
+  boolean, // The current boolean value
+  () => void, // Toggle the value
+  () => void, // Set the value to true
+  () => void  // Set the value to false
+]
 ```
